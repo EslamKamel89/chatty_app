@@ -1,5 +1,6 @@
 import 'package:chatty_app/utils/entities/entities.dart';
 import 'package:chatty_app/utils/helpers/print_helper.dart';
+import 'package:chatty_app/utils/routes/names.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -20,6 +21,7 @@ class SignInController extends GetxController {
         // TODO signin with phone
       } else if (type == 'google') {
         await _signInWithGoogle();
+        asyncPostAllData();
       } else if (type == 'facebook') {
         // TODO signin with facebook
       } else if (type == 'apple') {
@@ -50,5 +52,9 @@ class SignInController extends GetxController {
     );
     // Once signed in, return the UserCredential
     await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
+  asyncPostAllData() {
+    Get.offAllNamed(AppRoutes.Message);
   }
 }

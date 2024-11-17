@@ -13,7 +13,8 @@ class UserStore extends GetxController {
   String token = '';
   final _profile = UserItem().obs;
 
-  bool get isLogin => _isLogin.value;
+  // TODO: Remove the true below after caching the logged in user
+  bool get isLogin => _isLogin.value || true;
   UserItem get profile => _profile.value;
   bool get hasToken => token.isNotEmpty;
 
