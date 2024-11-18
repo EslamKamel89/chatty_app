@@ -34,7 +34,9 @@ class HeadBar extends GetView<MessageController> {
                   _buildStatusWidget()
                 ],
               ),
-              onTap: () {},
+              onTap: () {
+                controller.goProfile();
+              },
             )
           ],
         ),

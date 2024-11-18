@@ -1,3 +1,4 @@
+import 'package:chatty_app/pages/profile/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,6 +32,12 @@ class AppPages {
       page: () => const SignInPage(),
       binding: SignInBinding(),
     ),
+    GetPage(
+      name: AppRoutes.Profile,
+      page: () => const ProfilePage(),
+      binding: ProfileBinding(),
+    ),
+
 /*
     // GetPage(
     //   name: AppRoutes.Application,
