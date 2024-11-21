@@ -8,6 +8,7 @@ class MessagePage extends GetView<MessageController> {
 
   @override
   Widget build(BuildContext context) {
+    // HttpUtil().get('/test').then((response) => pr(response, 'response'));
     return const SafeArea(
       child: Scaffold(
         body: Padding(

@@ -4,12 +4,14 @@ import 'dart:io';
 import 'package:chatty_app/utils/store/user.dart';
 import 'package:chatty_app/utils/utils/loading.dart';
 import 'package:chatty_app/utils/values/cache.dart';
+import 'package:chatty_app/utils/values/server.dart';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart' hide FormData;
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class HttpUtil {
   static final HttpUtil _instance = HttpUtil._internal();
@@ -20,13 +22,15 @@ class HttpUtil {
 
   HttpUtil._internal() {
     BaseOptions options = BaseOptions(
+      baseUrl: SERVER_API_URL,
       connectTimeout: const Duration(seconds: 20),
       receiveTimeout: const Duration(seconds: 30),
-      headers: {},
+      headers: {
+        'Accept': 'application/json',
+      },
       contentType: 'application/json; charset=utf-8',
       responseType: ResponseType.json,
     );
-
     dio = Dio(options);
 
     (dio.httpClientAdapter as IOHttpClientAdapter).onHttpClientCreate = (HttpClient client) {
@@ -36,7 +40,7 @@ class HttpUtil {
 
     CookieJar cookieJar = CookieJar();
     dio.interceptors.add(CookieManager(cookieJar));
-
+    dio.interceptors.add(PrettyDioLogger(requestHeader: true, requestBody: true, responseHeader: true));
     dio.interceptors.add(InterceptorsWrapper(
       onRequest: (options, handler) {
         return handler.next(options); //continue
@@ -149,7 +153,7 @@ class HttpUtil {
     bool cacheDisk = false,
   }) async {
     Options requestOptions = options ?? Options();
-    // requestOptions.extra ??= <String, >{};
+    requestOptions.extra ??= <String, dynamic>{};
     requestOptions.extra!.addAll({
       "refresh": refresh,
       "noCache": noCache,

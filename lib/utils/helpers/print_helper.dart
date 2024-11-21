@@ -4,6 +4,16 @@ T prx<T>(T variable, [String? title]) {
   return variable;
 }
 
+T prt<T>(
+  T title,
+) {
+  if (kDebugMode) {
+    String message = '${_toYellow("< eslam dev - ${title.toString()} >>>>>>>>>>>>>>>>>>>>>>>>>>>>> ")} ';
+    print(message);
+  }
+  return title;
+}
+
 T pr<T>(T variable, [String? title]) {
   if (kDebugMode) {
     String message = '${_toRed("< eslam dev ${title == null ? "" : " - $title"}>")} '
