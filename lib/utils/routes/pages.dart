@@ -1,3 +1,4 @@
+import 'package:chatty_app/pages/contact/index.dart';
 import 'package:chatty_app/pages/profile/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -37,6 +38,11 @@ class AppPages {
       page: () => const ProfilePage(),
       binding: ProfileBinding(),
     ),
+    GetPage(
+      name: AppRoutes.Contact,
+      page: () => const ContactPage(),
+      binding: ContactBinding(),
+    ),
 
 /*
     // GetPage(
@@ -53,7 +59,6 @@ class AppPages {
     GetPage(name: AppRoutes.Forgot, page: () => ForgotPage(), binding: ForgotBinding()),
     GetPage(name: AppRoutes.Phone, page: () => PhonePage(), binding: PhoneBinding()),
     GetPage(name: AppRoutes.SendCode, page: () => SendCodePage(), binding: SendCodeBinding()),
-    GetPage(name: AppRoutes.Contact, page: () => ContactPage(), binding: ContactBinding()),
   
     GetPage(name: AppRoutes.Profile, page: () => ProfilePage(), binding: ProfileBinding()),
     GetPage(name: AppRoutes.Chat, page: () => ChatPage(), binding: ChatBinding()),
