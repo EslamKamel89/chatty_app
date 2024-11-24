@@ -27,6 +27,7 @@ class HttpUtil {
       receiveTimeout: const Duration(seconds: 30),
       headers: {
         'Accept': 'application/json',
+        'Authorization': UserStore.to.getToken(),
       },
       contentType: 'application/json; charset=utf-8',
       responseType: ResponseType.json,
@@ -184,6 +185,7 @@ class HttpUtil {
   }) async {
     Options requestOptions = options ?? Options();
     requestOptions.headers = requestOptions.headers ?? {};
+    requestOptions.headers!['Authorization'] = UserStore.to.getToken();
     Map<String, dynamic>? authorization = getAuthorizationHeader();
     if (authorization != null) {
       requestOptions.headers!.addAll(authorization);

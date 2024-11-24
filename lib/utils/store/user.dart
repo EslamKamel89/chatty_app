@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:chatty_app/utils/entities/user.dart';
+import 'package:chatty_app/utils/helpers/print_helper.dart';
 import 'package:chatty_app/utils/routes/names.dart';
 import 'package:chatty_app/utils/services/storage.dart';
 import 'package:chatty_app/utils/values/storage.dart';
@@ -35,6 +36,11 @@ class UserStore extends GetxController {
     token = value;
   }
 
+  String getToken() {
+    String token = StorageService.to.getString(STORAGE_USER_TOKEN_KEY);
+    return token;
+  }
+
   Future<String> getProfile() async {
     if (token.isEmpty) return "";
     // var result = await UserAPI.profile();
@@ -44,6 +50,7 @@ class UserStore extends GetxController {
   }
 
   Future<void> saveProfile(UserItem profile) async {
+    pr(profile, 'saveProfile - UserStore - userItem object recieved from the backend');
     _isLogin.value = true;
     StorageService.to.setString(STORAGE_USER_PROFILE_KEY, jsonEncode(profile));
     _profile(profile);
