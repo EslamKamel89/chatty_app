@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Msg {
@@ -32,9 +33,9 @@ class Msg {
   });
 
   factory Msg.fromFirestore(
-      DocumentSnapshot<Map<String, dynamic>> snapshot,
-      SnapshotOptions? options,
-      ) {
+    DocumentSnapshot<Map<String, dynamic>> snapshot,
+    SnapshotOptions? options,
+  ) {
     final data = snapshot.data();
     return Msg(
       from_token: data?['from_token'],
@@ -69,5 +70,10 @@ class Msg {
       if (last_time != null) "last_time": last_time,
       if (msg_num != null) "msg_num": msg_num,
     };
+  }
+
+  @override
+  String toString() {
+    return 'Msg(from_token: $from_token, to_token: $to_token, from_name: $from_name, to_name: $to_name, from_avatar: $from_avatar, to_avatar: $to_avatar, from_online: $from_online, to_online: $to_online, from_msg_num: $from_msg_num, to_msg_num: $to_msg_num, last_msg: $last_msg, last_time: $last_time, msg_num: $msg_num)';
   }
 }
