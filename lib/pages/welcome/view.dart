@@ -1,4 +1,4 @@
-import 'package:chatty_app/pages/frame/sign_in/view/widgets/logo_widget.dart';
+import 'package:chatty_app/pages/sign_in/view/widgets/logo_widget.dart';
 import 'package:chatty_app/pages/welcome/index.dart';
 import 'package:chatty_app/utils/values/colors.dart';
 import 'package:flutter/material.dart';

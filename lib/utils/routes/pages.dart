@@ -1,10 +1,11 @@
 import 'package:chatty_app/pages/contact/index.dart';
+import 'package:chatty_app/pages/message/children/chat/index.dart';
 import 'package:chatty_app/pages/profile/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../pages/frame/message/index.dart';
-import '../../pages/frame/sign_in/index.dart';
+import '../../pages/message/index.dart';
+import '../../pages/sign_in/index.dart';
 import '../../pages/welcome/index.dart';
 import '../middlewares/router_auth.dart';
 import 'routes.dart';
@@ -43,6 +44,7 @@ class AppPages {
       page: () => const ContactPage(),
       binding: ContactBinding(),
     ),
+    GetPage(name: AppRoutes.Chat, page: () => const ChatPage(), binding: ChatBinding()),
 
 /*
     // GetPage(
@@ -61,7 +63,6 @@ class AppPages {
     GetPage(name: AppRoutes.SendCode, page: () => SendCodePage(), binding: SendCodeBinding()),
   
     GetPage(name: AppRoutes.Profile, page: () => ProfilePage(), binding: ProfileBinding()),
-    GetPage(name: AppRoutes.Chat, page: () => ChatPage(), binding: ChatBinding()),
 
     GetPage(name: AppRoutes.Photoimgview, page: () => PhotoImgViewPage(), binding: PhotoImgViewBinding()),
     GetPage(name: AppRoutes.VoiceCall, page: () => VoiceCallViewPage(), binding: VoiceCallViewBinding()),

@@ -1,4 +1,4 @@
-import 'package:chatty_app/pages/frame/sign_in/index.dart';
+import 'package:chatty_app/pages/sign_in/index.dart';
 import 'package:get/get.dart';
 
 class SignInBinding implements Bindings {

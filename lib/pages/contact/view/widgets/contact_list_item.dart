@@ -1,10 +1,9 @@
-import 'dart:math';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chatty_app/pages/contact/controller.dart';
 import 'package:chatty_app/utils/entities/contact.dart';
 import 'package:chatty_app/utils/extensions/capitalize.dart';
 import 'package:chatty_app/utils/values/colors.dart';
+import 'package:chatty_app/utils/widgets/random_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -37,7 +36,7 @@ class ContactListItem extends GetView<ContactController> {
                 overflow: TextOverflow.clip,
                 maxLines: 1,
                 style: TextStyle(
-                  fontSize: 18.sp,
+                  fontSize: 16.sp,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
@@ -67,20 +66,9 @@ class ContactListItem extends GetView<ContactController> {
       child: CachedNetworkImage(
         imageUrl: contactItem.avatar ?? '',
         errorWidget: (context, str, obj) {
-          return Image.asset(_getRandomImagePath());
+          return const RandomAvatar();
         },
       ),
     );
-  }
-
-  String _getRandomImagePath() {
-    String image = <String>[
-      'person1.png',
-      'person2.png',
-      'person3.png',
-      'person4.png',
-      'person5.png',
-    ][Random().nextInt(5)];
-    return 'assets/images/$image';
   }
 }

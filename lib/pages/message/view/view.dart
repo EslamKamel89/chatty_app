@@ -1,5 +1,5 @@
-import 'package:chatty_app/pages/frame/message/index.dart';
-import 'package:chatty_app/pages/frame/message/view/widgets/headbar.dart';
+import 'package:chatty_app/pages/message/index.dart';
+import 'package:chatty_app/pages/message/view/widgets/headbar.dart';
 import 'package:chatty_app/utils/routes/names.dart';
 import 'package:chatty_app/utils/values/colors.dart';
 import 'package:flutter/material.dart';

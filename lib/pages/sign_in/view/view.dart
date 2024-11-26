@@ -1,8 +1,8 @@
-import 'package:chatty_app/pages/frame/sign_in/index.dart';
-import 'package:chatty_app/pages/frame/sign_in/view/widgets/custom_text_button.dart';
-import 'package:chatty_app/pages/frame/sign_in/view/widgets/logo_widget.dart';
-import 'package:chatty_app/pages/frame/sign_in/view/widgets/or_divider.dart';
-import 'package:chatty_app/pages/frame/sign_in/view/widgets/social_login_button.dart';
+import 'package:chatty_app/pages/sign_in/index.dart';
+import 'package:chatty_app/pages/sign_in/view/widgets/custom_text_button.dart';
+import 'package:chatty_app/pages/sign_in/view/widgets/logo_widget.dart';
+import 'package:chatty_app/pages/sign_in/view/widgets/or_divider.dart';
+import 'package:chatty_app/pages/sign_in/view/widgets/social_login_button.dart';
 import 'package:chatty_app/utils/values/colors.dart';
 import 'package:chatty_app/utils/widgets/margin.dart';
 import 'package:flutter/material.dart';

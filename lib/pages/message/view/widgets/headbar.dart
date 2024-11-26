@@ -1,4 +1,4 @@
-import 'package:chatty_app/pages/frame/message/controller.dart';
+import 'package:chatty_app/pages/message/controller.dart';
 import 'package:chatty_app/utils/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
