@@ -104,22 +104,30 @@ class ContactController extends GetxController {
         }, '$t - data send to chat page'),
       );
     } else {
-      DocumentReference<Msg> docId = db
-          .collection('message')
-          .withConverter(
-            fromFirestore: Msg.fromFirestore,
-            toFirestore: (Msg msg, options) => msg.toFirestore(),
-          )
-          .doc();
-      pr(docId.id, '$t - docId tht is generated only if there are old chat between this user and me');
-      Get.toNamed(AppRoutes.Chat,
-          parameters: pr({
-            "docId": docId.id,
-            "toToken": contactItem.token ?? "",
-            "toName": contactItem.name ?? '',
-            "toAvatar": contactItem.avatar ?? '',
-            "toOnline": contactItem.online?.toString() ?? '',
-          }, '$t - data send to chat page'));
+      if (fromMessages.docs.first.id.isNotEmpty) {
+        pr(fromMessages.docs.first.id,
+            '$t - this the id that exist if there are a document for me sending message to the other user');
+        Get.toNamed(AppRoutes.Chat,
+            parameters: pr({
+              "docId": fromMessages.docs.first.id,
+              "toToken": contactItem.token ?? "",
+              "toName": contactItem.name ?? '',
+              "toAvatar": contactItem.avatar ?? '',
+              "toOnline": contactItem.online?.toString() ?? '',
+            }, '$t - data send to chat page'));
+      }
+      if (toMessages.docs.first.id.isNotEmpty) {
+        pr(fromMessages.docs.first.id,
+            '$t - this the id that exist if there are a document for other user sending message to the me');
+        Get.toNamed(AppRoutes.Chat,
+            parameters: pr({
+              "docId": toMessages.docs.first.id,
+              "toToken": contactItem.token ?? "",
+              "toName": contactItem.name ?? '',
+              "toAvatar": contactItem.avatar ?? '',
+              "toOnline": contactItem.online?.toString() ?? '',
+            }, '$t - data send to chat page'));
+      }
     }
   }
 }
